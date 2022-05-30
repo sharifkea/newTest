@@ -134,7 +134,7 @@
       ?>
       
         <main>
-          <p1>Insert Your MongoDB.Atlas connection string for your application code (while getting connection string Driver should be PHP and add your password in connection string the way it instructed in cloud.mongodb/connect).</p1> 
+          <p1>new Insert Your MongoDB.Atlas connection string for your application code (while getting connection string Driver should be PHP and add your password in connection string the way it instructed in cloud.mongodb/connect).</p1> 
           <div class ="form">
               <form action="" method="POST" name="login" >
                   <input id="murl" placeholder="Connection String" type="text" name="txtMurl"  required tabindex="1">
