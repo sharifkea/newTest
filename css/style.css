@@ -1,0 +1,256 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap");
+
+:root {
+    --colorTextPrimary: black;
+    --colorTextSecondary: #fffaf0;
+    --colorBgHeader: #20408A;
+    --colorBgHdSecondary: #045a3d;
+    --colorBgNav: lightblue;
+    --colorBgTable: brown;
+    --colorBgButton: lightgray;
+    --colorBgHover: gray;
+
+    --fontMain: 'Raleway', Arial, Helvetica, sans-serif;
+    --fontData: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+}
+
+* {
+    margin: 0;
+}
+
+
+body {
+    font-family: var(--fontMain);
+    background-color: var(--colorBgNav); 
+    margin: 0;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: var(--colorBgHdSecondary);
+    position: relative;
+    top: 0;
+    width: 99%;
+}
+li {
+    float: left;
+}
+
+li a{
+    display: block;
+    color:var(--colorTextSecondary);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+li a:hover:not(.active) {
+    background-color:var(--colorBgHover);
+}
+
+.active {
+    background-color:var(--colorBgHover);
+}
+
+header, div.buttons {
+    padding: 10px 0 10px 10px;
+    color: var(--colorTextSecondary);
+    background-color: var(--colorBgHeader);
+}
+header{
+    text-align: center;
+}
+div.buttons {
+    text-align: right;
+    padding-right: 60px;
+}
+
+
+main {
+    padding: 50px;
+    line-height: 1.4em;
+}
+
+
+
+footer {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    padding: 5px 0 5px 0;
+    color: var(--colorTextSecondary);
+    background-color: var(--colorBgHeader);
+    text-align: center;
+}
+
+form {
+    margin-bottom: 30px;
+}
+label {
+   
+    width: 20%;
+    padding-top: 2%;
+}
+
+input {
+    padding: 1% 1%;
+    margin: 1% 0;
+    display: inline-block;
+    border-radius: 4px;
+    box-sizing: border-box;    
+}
+
+div.formEdit {
+ border-radius: 5px;
+ background-color: var(--colorBgNav);
+}
+
+
+
+th, td {
+    border: solid thin var(--colorTextPrimary);
+    padding: 0px 10px;
+}
+th {
+    color: var(--colorTextPrimary);
+    background-color: var(--colorBgNav);
+    text-align: left;
+}
+img.smallButton {
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin-bottom: 2px;
+    padding: 2px;
+    border: thin solid var(--colorTextPrimary);
+    border-radius: 3px;
+    background-color: var(--colorTextSecondary);
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+li.logout {
+    float: right;
+}
+li.profile {
+    float: right;
+    clear: right;
+}
+li.changePassword {
+    float: right;
+}
+
+input.search, select {
+    
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+div.login {
+    float: right;
+    font:900;
+}
+#oneCart{
+    width: 25%;
+    float: left;
+    padding: 0;
+    margin: 0;
+    background-color: var(--colorBgHdSecondary);
+    color: var(--colorTextSecondary);
+}
+div#loading {
+    display: none;
+    text-align: center;
+}
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    padding-top: 10px; 
+    left: 0;
+    top: 0;
+    width: 95%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: var(--colorTextPrimary);
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    overflow-y: scroll;
+    padding: 2%;
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color:var(--colorBgButton);
+    margin: auto;
+    padding: 20px;
+    border: 1px solid var(--colorBgHover);
+    width: 88%;
+
+    
+  }
+  .modal-content.label {
+    width: 20%;
+    padding-top: 2%;
+}
+
+  
+  /* The Close Button */
+  .close {
+    color: var(--colorBgTable);
+    float:left;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+@media screen and (max-width: 1232px) {
+    fieldset {
+        float: none;
+       
+    }
+}
+@media screen and (max-width: 576px) {
+    fieldset {
+        margin-left: 2%;
+        width: 20%;
+    }
+    input.search, select {
+        padding: unset;
+    }
+    footer {
+        position: unset;
+    }
+    .class#customerBuy{
+        padding:2%;
+    }
+    body {
+        font-size: small;
+    }
+    #oneCart{
+        width: 15%;
+        float: right;
+        margin-right: 0%;        
+    }
+    th, td {
+        padding: 0px;
+    }
+    main{
+        padding: 1%;
+    }
+    li a {
+        text-align: center;
+        padding: 3px 5px;
+    }
+    fieldset{
+        align-content: center;
+    }
+    .modal-content input{
+        padding:0;
+        margin: 0;
+        width: 30%;    
+    }    
+}

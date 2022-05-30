@@ -1,0 +1,22 @@
+{	"name": "sharif/mongo-atl-test",
+    "description": "Tests Php unit for event diary.",
+    "license": "MIT",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Abul Sharif",
+            "email": "abul0021@stud.kea.dk"
+        }
+    ],
+    "require": {
+        "mongodb/mongodb": "^1.12",
+        "phpunit/phpunit": "^9"
+    },"scripts": {
+        "test": "vendor/bin/phpunit"
+      },
+	 "autoload": {
+        "psr-4": {
+            "App\\": "app"
+        }
+    }
+}

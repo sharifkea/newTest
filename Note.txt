@@ -1,0 +1,10 @@
+$ heroku login
+
+$ heroku git:clone -a dbmongosharif 
+
+$ git add .
+$ git commit -am "make it better"
+// git pull heroku master
+$ git push heroku master
+
+

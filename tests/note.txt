@@ -1,0 +1,40 @@
+PHP Unit Test
+step:1 
+Open a new Bash Terminal in Visual Studio Code 
+Go to the working directory and 
+composer require phpunit/phpunit ^9
+To verify the phpunit vertion
+./vendor/bin/phpunit –version
+
+Step:2
+Create  “phpunit.xml” file in working directory with code
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpunit bootstrap="vendor/autoload.php"
+    colors="true"
+    stopOnFailure="false">
+    <testsuites>
+        <testsuite name="Calculator">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
+
+Step:3
+In file “composer.json” add
+, "autoload": {
+        "psr-4": {
+            "App\\": "app"
+        }
+    }
+Step:4
+Update composer with command 
+composer update
+Step:5
+Create a folder called “tests” in working directory and in the folder create php test files. The file name should have “Test” before “.php” like “CalculatorTest.php”
+Step:6
+run test with
+./vendor/bin/phpunit
+-d zend_extension=xdebug.so -d xdebug.mode=coverage
+./vendor/bin/phpunit tests --coverage-html coverage-filter --generate-configuration
+XDEBUG_MODE=coverage php -n -dzend_extension=xdebug vendor/bin/phpunit --coverage-text
+./vendor/bin/phpunit tests --coverage-html coverage-filter phpunit --generate-configuration
