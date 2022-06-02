@@ -1,15 +1,11 @@
 <?php
 include_once ("header.php");
 require_once('fun.php');
-require_once __DIR__ . '/vendor/autoload.php';
-//var_dump($_SESSION);
+
 $murl=$_SESSION['mdbInfo']['txtMurl'];
 $doc=$_SESSION['mdbInfo']['document'];
 $coll=$_SESSION['mdbInfo']['collection'];
 
-
-$client = new MongoDB\Client($murl);
-$manager = new MongoDB\Driver\Manager($murl);
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //Something posted
   

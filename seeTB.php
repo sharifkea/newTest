@@ -230,7 +230,7 @@ if (isset($_POST['sub'])) {
 </table>
 </div>
     <?php } ?>
-<a class=""  href='fKey.php'>>Creat Foreign Key<</a><br>
+<a class=""  href='fKey.php'>>Create Foreign Key<</a><br>
 <a class=""  href='home.php'>>Back<</a>
 <?php
 include_once('footer.php');

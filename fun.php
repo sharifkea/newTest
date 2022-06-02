@@ -243,6 +243,8 @@ function edTbRow($mdbInfo,$data){
     $dbKey=array('db'=>'RDMS');
     $dbif=find_one($mdbInfo,$dbKey);
     $dbif = json_decode(json_encode($dbif), true);
+    $pkc=0;
+    if($oldpk!=$data[$tbif['pk']])$pkc=1;
     if(!isset($tbif['ai']) && $oldpk!=$data[$tbif['pk']]){$fpk=array('tableName'=>$tableName,$tbif['pk']=>$data[$tbif['pk']]);
         if(find_one($mdbInfo,$fpk)){
             $i=1; return $i;
@@ -275,9 +277,10 @@ function edTbRow($mdbInfo,$data){
     }
     if(del($mdbInfo,$oldkey)){
         if(create($mdbInfo,$data))
-        {
-            $what=array('lastId'=>$data[$tbif['pk']]);
-            $upRet=update($mdbInfo,$key,$what);
+        {   if($pkc==1){
+                $what=array('lastId'=>$data[$tbif['pk']]);
+                $upRet=update($mdbInfo,$key,$what);
+            }
             return $i;
         }
     }else {$i=5; return $i;}
