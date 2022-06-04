@@ -20,7 +20,7 @@
           <h1>Welcome to Relational MongoDB</h1>
       </header>	
 <?php
-if (isset($_POST['txtMurl'])&&!isset($_POST['document'])){
+if (isset($_POST['txtMurl'])&&!isset($_POST['database'])){
     $txtMurl=$_POST['txtMurl'];
     try {
       $client = new MongoDB\Client($_POST['txtMurl']);
@@ -37,12 +37,12 @@ if (isset($_POST['txtMurl'])&&!isset($_POST['document'])){
               <form action="" method="POST" name="login" >
                 <label for="MongoDBURL">MongoDB :<?php echo $txtMurl; ?></label><br>
                 <label for="doc">Select a Database:</label>
-                <select name="document" required>
+                <select name='database' required>
                   <option value="">--Select--</option>
                   <?php
                     for ($z = 0; $z <$i; $z++){
                   ?>
-                  <option value="<?php echo $dbNames[$z]?>"  <?php if(isset($_POST['document']) && $_POST['document']==$dbNames[$z]) { ?>selected<?php  } ?>><?php echo $dbNames[$z]?></option>
+                  <option value="<?php echo $dbNames[$z]?>"  <?php if(isset($_POST['database']) && $_POST['database']==$dbNames[$z]) { ?>selected<?php  } ?>><?php echo $dbNames[$z]?></option>
                   <?php }?>
                 </select>
                 <input name="submitDoc" id='doc' type="submit" value="SUBMITE" tabindex="2">
@@ -52,7 +52,7 @@ if (isset($_POST['txtMurl'])&&!isset($_POST['document'])){
             <div class="Crt-doc">
               <form action="" method="POST" name="login" >
                 <label for="doc">Create a Database:</label>
-                <input id="doc" placeholder="DB Name" type="text" name="document"  required tabindex="1">
+                <input id="doc" placeholder="DB Name" type="text" name='database'  required tabindex="1">
                 <input name="CrtDoc" id='doc' type="submit" value="Create" tabindex="2">
               </form>
             </div><br>
@@ -71,17 +71,17 @@ catch(Exception $e) {
 }
 }else if(isset($_POST['CrtDoc'])){
     unset($client);
-    $doc=$_POST['document'];
+    $doc=$_POST['database'];
     $client = new MongoDB\Client($_SESSION['Murl']);
     $db = $client->selectDatabase($doc);
     
-    if(!isset($_SESSION['document']))
-    $_SESSION['document']=$_POST['document'];
+    if(!isset($_SESSION['database']))
+    $_SESSION['database']=$_POST['database'];
     ?>
     <div class="Crt-coll">
               <form action="" method="POST" name="login" >
                 <label for="MongoDBURL">MongoDB :<?php echo $_SESSION['Murl']; ?></label><br>
-                <label for="doc">Selected Database:<?php echo $_SESSION['document']; ?></label><br>
+                <label for="doc">Selected Database:<?php echo $_SESSION['database']; ?></label><br>
                 <label for="doc">Create a new Collection:</label>
                 <input id="crcol" placeholder="Collection Name" type="text" name="collection"  required tabindex="1">
                 <input name="CrtColl" id='doc' type="submit" value="Create" tabindex="2">
@@ -92,9 +92,9 @@ catch(Exception $e) {
 
 }
     
-    else if(isset($_POST['document'])){
+    else if(isset($_POST['database'])){
   unset($client);
-  $doc=$_POST['document'];
+  $doc=$_POST['database'];
   $client = new MongoDB\Client($_SESSION['Murl']);
   $db = $client->$doc;
   $colls = $db->listCollections();
@@ -102,14 +102,14 @@ catch(Exception $e) {
   foreach ($colls as $item) {
   $collNames[$i]= $item->getName();
   $i=$i+1;}
-  if(!isset($_SESSION['document']))
-  $_SESSION['document']=$_POST['document'];
+  if(!isset($_SESSION['database']))
+  $_SESSION['database']=$_POST['database'];
   
 ?>
   <div class="form-coll">
     <form action="" method="POST" name="login" >
       <label for="MongoDBURL">MongoDB URL:<?php echo $_SESSION['Murl']; ?></label><br>
-      <label for="doc">Selected Database:<?php echo $_SESSION['document']; ?></label><br>
+      <label for="doc">Selected Database:<?php echo $_SESSION['database']; ?></label><br>
       <label for="coll">Select a Collection:</label>
       <select name="collection" required>
         <option value="">--Select--</option>
@@ -134,7 +134,7 @@ catch(Exception $e) {
 <?php 
   }else if (isset($_POST['collection'])){
     $coll=$_POST['collection'];
-    $doc=$_SESSION['document'];
+    $doc=$_SESSION['database'];
       if(isset($_POST['CrtColl'])){
         $client = new MongoDB\Client($_SESSION['Murl']);
         $db = $client->$doc;
@@ -154,7 +154,7 @@ catch(Exception $e) {
       $_SESSION['empty']=false;
       $_SESSION['mdbInfo']['txtMurl']=$_SESSION['txtMurl'];
       $_SESSION['mdbInfo']['collection']=$_SESSION['collection'];
-      $_SESSION['mdbInfo']['document']=$_SESSION['document'];
+      $_SESSION['mdbInfo']['database']=$_SESSION['database'];
       $_SESSION['mdbInfo']['empty']=$_SESSION['empty'];
       header('Location: home.php');
     }else {
@@ -170,7 +170,7 @@ catch(Exception $e) {
       $_SESSION['empty']=true;
       $_SESSION['mdbInfo']['txtMurl']=$_SESSION['txtMurl'];
       $_SESSION['mdbInfo']['collection']=$_SESSION['collection'];
-      $_SESSION['mdbInfo']['document']=$_SESSION['document'];
+      $_SESSION['mdbInfo']['database']=$_SESSION['database'];
       $_SESSION['mdbInfo']['empty']=$_SESSION['empty'];
       header('Location: home.php');
     }
