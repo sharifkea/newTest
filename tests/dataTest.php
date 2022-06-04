@@ -63,10 +63,10 @@ final class dataTest extends TestCase
         $this->assertEquals($expected, $result);
     }
     public function test_strInArray(){
-        $array=array('txtMurl'=>'mongodb+srv://ronysharif:rony2204@sharifmdb.px3qb.mongodb.net/newdb?retryWrites=true&w=majority','database'=>'newdb','collection'=>'test');
-        $key='newdb';
+        $array=array(aa=>bb,bb=>cc,cc=>dd,dd=>ff);
+        $key='cc';
         $result= strInArray($array,$key);
-        $expected='database';
+        $expected='bb';
         $this->assertEquals($expected, $result);
     }
     public function test_strInArray_1(){
