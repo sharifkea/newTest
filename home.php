@@ -3,7 +3,7 @@ include_once ("header.php");
 require_once('fun.php');
 
 $murl=$_SESSION['mdbInfo']['txtMurl'];
-$doc=$_SESSION['mdbInfo']['document'];
+$doc=$_SESSION['mdbInfo']['database'];
 $coll=$_SESSION['mdbInfo']['collection'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

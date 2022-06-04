@@ -5,7 +5,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 function create($sec,$toDb){
     $murl=$sec['txtMurl'];
     $coll=$sec['collection'];
-    $doc=$sec['document'];
+    $doc=$sec['database'];
     //unset($toDb['submit']);
     try{
         $client = new MongoDB\Client($murl);
@@ -19,7 +19,7 @@ function create($sec,$toDb){
 function checkTN($sec,$tbNm){
     $murl=$sec['txtMurl'];
     $coll=$sec['collection'];
-    $doc=$sec['document'];
+    $doc=$sec['database'];
     $colldb=($doc.'.'.$coll);
     $key= array("tableInfo"=>$tbNm);
     $options= [];
@@ -38,7 +38,7 @@ function checkTN($sec,$tbNm){
 function update($sec,$where,$what) {
     $murl=$sec['txtMurl'];
     $coll=$sec['collection'];
-    $doc=$sec['document'];
+    $doc=$sec['database'];
     $client = new MongoDB\Client($murl);
     $collection = $client->selectCollection($doc,$coll);
     if($collection->updateMany($where,['$set' => $what]))return true;
@@ -47,7 +47,7 @@ function update($sec,$where,$what) {
 function find_one($sec,$key) {
     $murl=$sec['txtMurl'];
     $coll=$sec['collection'];
-    $doc=$sec['document'];
+    $doc=$sec['database'];
     $client = new MongoDB\Client($murl);
     $db = $client->$doc->$coll;
     return $db->findOne($key);
@@ -55,7 +55,7 @@ function find_one($sec,$key) {
 function del($sec,$which) {
     $murl=$sec['txtMurl'];
     $coll=$sec['collection'];
-    $doc=$sec['document'];
+    $doc=$sec['database'];
     $client = new MongoDB\Client($murl);
     //require_once __DIR__ . '/mongo.php';
     $collection = $client->selectCollection($doc,$coll);
@@ -65,7 +65,7 @@ function del($sec,$which) {
 function query($sec,$which) {
     $murl=$sec['txtMurl'];
     $coll=$sec['collection'];
-    $doc=$sec['document'];
+    $doc=$sec['database'];
     $colldb=$doc.'.'.$coll;
     $options= [];
     $query = new MongoDB\Driver\Query($which, $options);

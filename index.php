@@ -51,7 +51,7 @@ if (isset($_POST['txtMurl'])&&!isset($_POST['document'])){
             <p>OR<p>
             <div class="Crt-doc">
               <form action="" method="POST" name="login" >
-                <label for="doc">Create a new Database:</label>
+                <label for="doc">Create a Database:</label>
                 <input id="doc" placeholder="DB Name" type="text" name="document"  required tabindex="1">
                 <input name="CrtDoc" id='doc' type="submit" value="Create" tabindex="2">
               </form>
