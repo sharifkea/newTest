@@ -141,11 +141,8 @@ function createTb($sec,$data){
 }
 function strInArray($arr, $keyword) {
     foreach($arr as $index => $string) {
-        //array_push($array,"blue","yellow");
-        //echo 'key: '.$index.'-data:'.$string;
-        if (strpos($string, $keyword) !== FALSE)
-            //{echo 'return: '.$index;
-            return $index;//}
+        if ($string==$keyword)
+            return $index;
     }
 }
 function addFK($mdbInfo,$data,$selectedTable){
