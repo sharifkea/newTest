@@ -80,13 +80,10 @@ if (isset($_POST['fknrt'])) {
     if(($tInfo['columnNo']-$tInfo['fkNo']-1)>0) {
         $key=array('db'=>'RDMS');
         $dbInfo=find_one($mdbInfo,$key);
-        /*echo $tInfo['fkNo'];
-        echo "<br>";
-        for ($z = 0; $z <$tInfo['columnNo']; $z++){unset($fk);echo $tInfo['columnNames'][$z]; echo "<br>";
-            if($tInfo['fkNo']>0){$fk=strInArray($tInfo['fkName'],$tInfo['columnNames'][$z]);if(isset($fk)) echo $fk; echo "<br>";}}*/
+        
 
         ?>
-            <div class="form-doc">
+            <div class="form-fKey">
               <form action="" method="POST" name="fkey" >
                 <input type="hidden" id="fNo" name='fkNo' value=<?php echo $tInfo['fkNo']; ?>>
                 <label for="fKey">Select a Foreign Key:</label>

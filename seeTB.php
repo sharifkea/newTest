@@ -121,7 +121,7 @@ if (isset($_POST['sub'])) {
   }else{
     ?>
       <script>
-        alert("This Row could not be delered. The key has record as a Foreign key in other table(s).");
+        alert("This Row could not be deleted. The key has record as a Foreign key in other table(s).");
         window.location.href ='seeTB.php';
       </script>
     <?php  

@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           }else{
             ?>
               <script>
-                alert("This Table could not be delered. The key has record as a Foreign key in other table(s).");
+                alert("This Table could not be deleted. The key has record as a Foreign key in other table(s).");
                 window.location.href ='home.php';
               </script>
             <?php  

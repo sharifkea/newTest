@@ -140,11 +140,12 @@ function createTb($sec,$data){
     return false;
 }
 function strInArray($arr, $keyword) {
-    foreach($arr as $index => $string) {
-        if ($string==$keyword)
-            return $index;
+        foreach($arr as $index => $string) {
+            if ($string==$keyword)
+                return $index;
+        }
     }
-}
+
 function addFK($mdbInfo,$data,$selectedTable){
     $key=array('tableInfo'=>$selectedTable);
     $tbif=find_one($mdbInfo,$key);

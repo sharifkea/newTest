@@ -104,10 +104,19 @@ if (isset($_POST['num_fields'])||isset($_SESSION['tbData'])) {
         //unset($_POST['save_tb']);
         //var_dump($_POST);
         $retForm=form($_POST,$_SESSION['Data']['columnNo']);
+        if(count($retForm['columnNames'])!=count(array_unique($retForm['columnNames']))) $retForm= 'nunq';
         $_SESSION['tbData']=$_POST;
         //echo $_SESSION['tbData']['columnNames_0'];
         unset($_POST);
         switch ($retForm) {
+            case 'nunq':
+                ?>
+                <script>
+                    alert("Column Names should be Unique.");
+                    window.location.href ='createTB.php';
+                </script>
+                <?php  
+              break;
             case 'pkc1':
                 ?>
                 <script>
